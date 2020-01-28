@@ -39,6 +39,7 @@ export class FormPersonasComponent implements OnInit {
   }
   editar(datos: Persona) {
     this.p = datos;
+    this.accion = "Modificar";
   }
   cancelar() {
     this.ruta.navigate(["/"]);
