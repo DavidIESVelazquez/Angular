@@ -37,12 +37,8 @@ export class FormPersonasComponent implements OnInit {
       this.cancelar();
     }
   }
-  editar(datos: Object) {
-    this.p.id = this.selId;
-    this.p.dni = datos["dni"];
-    this.p.nombre = datos["nombre"];
-    this.p.apellidos = datos["apellidos"];
-    this.accion = "Modificar";
+  editar(datos: Persona) {
+    this.p = datos;
   }
   cancelar() {
     this.ruta.navigate(["/"]);
