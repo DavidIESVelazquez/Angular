@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Envio de parametros con AJAX externo</title>
+  </head>
+  <body>
+    <h3>Ejemplo de llamada a la API de STAR WARS</h3>
+    <br />
+    <div>
+      <button
+        [disabled]="!(datos && datos.previous)"
+        (click)="ir(datos.previous)"
+      >
+        Anterior
+      </button>
+      <button [disabled]="!(datos && datos.next)" (click)="ir(datos.next)">
+        Siguiente
+      </button>
+    </div>
+    <table id="personajes" class="estilo_Tabla_1">
+      <caption>
+        Personajes STAR WARS
+      </caption>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Altura</th>
+          <th>Peso</th>
+          <th>Nacimiento</th>
+          <th>Género</th>
+          <th>Homeworld</th>
+        </tr>
+      </thead>
+      <tbody id="cuerpoPersonajes">
+        <tr *ngFor="let personaje of listaPer">
+          <td *ngFor="let atributo of datosPer">{{ personaje[atributo] }}</td>
+          <td>
+            <a
+              (click)="irPlaneta($event, personaje.homeworld)"
+              href="{{ personaje.homeworld }}"
+              >{{ personaje.homeworld }}</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="datosPlaneta">
+      <app-planeta [planeta]="datosPlaneta"></app-planeta>
+    </div>
+  </body>
+</html>

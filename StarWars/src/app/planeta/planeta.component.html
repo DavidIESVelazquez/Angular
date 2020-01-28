@@ -1,0 +1,15 @@
+<div *ngIf="!planeta">
+  <h4>Datos Planeta</h4>
+  <ul>
+    <li>Nombre: {{ planeta.name }}</li>
+    <li>Periodo rotacion: {{ planeta.rotation_period }}</li>
+    <li>Periodo orbital: {{ planeta.orbital_period }}</li>
+    <li>Diametro: planeta.diameter</li>
+    <li>Clima: {{ planeta.climate }}</li>
+    <li>Gravedad: {{ planeta.gravity }}</li>
+    <li>Terreno: {{ planeta.terrain }}</li>
+  </ul>
+  <div>
+    <button (click)="cerrar()">Cerrar Planeta</button>
+  </div>
+</div>
