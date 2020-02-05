@@ -1,39 +1,6 @@
 <div class="container">
-  <h2>Los Millonarios</h2>
-  <pre>
-Y tú que estás ahí
-Mirando cual si yo fuera un loco
-Deberías de saber que yo de pobre tengo poco
-Y aunque a dentelladas viva de lo que te sobre
-Te puedo asegurar que de los dos tu eres el pobre
-Y tu que no te enteras
-Que la vida no se vive a tu manera
-Que la distancia más corta entre dos puntos es la misma carretera
-Y no hace falta rumbo ni destino
-Se cruza a paso lento que el camino
-Ya te dará tu morada, tu abrigo, tu vino, tu pan y tu risa
-Y sobran ruidos, ruidos, motores y falsos amores que mueren deprisa
-Jugando al esconder con el placer y los dolores
-Que luego a ti y a mí la muerte nunca nos avisa
-Y el dinero, ni es un caballero
-Ni es tan poderoso, lo que por un lado te da
-Por el otro te quita las cosas que se necesitan
-Para que la vida merezca la pena y no parezca una condena
-Mírate bien en los bolsillos que la auténtica indigencia
-No es más, que la impotencia de tu misma sociedad
-La misma que te muerde y te devora
-A cada segundo y cada hora, y cada día que se va
-Y entre las cosas que tengo
-No hay un tesoro mayor
-Que verme siempre a solas con el tiempo
-Que el tiempo es oro, y oro es lo que tengo yo
-El tiempo se detiene ante mi cuando el mundo se levanta
-El tiempo que tu convierte en la rutina que te atraganta
-El tiempo que cunado no me da el sol
-Es porque me está dando la luna
-El mismo que a ti se te escapa
-De la forma más torpe y más inoportuna
-Esa es mi fortuna
-</pre
-  >
+  <h2>Owners</h2>
+  <ul class="list-group" *ngFor="let owner of owners">
+    <li class="list-group-item"> <a routerLink="/"> {{ owner.firstName}} {{owner.lastName}} - {{owner.city}}</a></li>
+  </ul>
 </div>
