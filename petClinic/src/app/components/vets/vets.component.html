@@ -1,38 +1,8 @@
 <div class="container">
-  <h2>Los Condenaos</h2>
-  <pre>
-La luna me está mirando
-y acariciándome el pelo,
-y yo le he dicho que el cielo
-puede quedarse esperando.
-La luna me está sintiendo
-bajo su octava costilla
-y con su luz amarilla
-la luna me está diciendo:
-Ya sé que te están condenando,
-te están condenando, te están condenando
-porque las cosas, niño, que tú dices
-las dices cantando, las dices cantando.
-Y si cantando las digo
-las oye la luna llena,
-y si por eso hay condena
-yo no le temo al castigo,
-y si por eso hay condena
-yo no le temo al castigo.
-La condena de los besos largos
-en las plazas de las catedrales
-donde el vino sabe amargo
-y amarga amores inmortales.
-Y mortales condenas de encargo
-de besos largos en nuestros portales,
-que me condenen si es pa algo
-y muera por los Carnavales.
-Carnavales de los besos largos,
-carnavales, mortales condenas,
-carnavales, risas por encargo
-y por encargo, besos en nuestros portales.
-La libertad está pa algo, la libertad,
-los carnavales.
-</pre
-  >
+  <h2>Vets</h2>
+  <ul class="list-group mt-4" *ngFor="let vet of vets">
+    <li class="list-group-item list-group-item-secondary">
+      {{ vet.firstName }} {{ vet.lastName }}
+    </li>
+  </ul>
 </div>

@@ -1,6 +1,10 @@
 <div class="container">
   <h2>Owners</h2>
-  <ul class="list-group" *ngFor="let owner of owners">
-    <li class="list-group-item"> <a routerLink="/"> {{ owner.firstName}} {{owner.lastName}} - {{owner.city}}</a></li>
+  <ul class="list-group mt-4" *ngFor="let owner of owners">
+    <li class="list-group-item list-group-item-secondary">
+      <a routerLink="/owners/{{ owner.id }}">
+        {{ owner.firstName }} {{ owner.lastName }} - {{ owner.city }}
+      </a>
+    </li>
   </ul>
 </div>
