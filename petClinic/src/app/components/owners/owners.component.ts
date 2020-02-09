@@ -11,12 +11,25 @@ export class OwnersComponent implements OnInit {
   public owners: Array<Owner>;
   constructor(private OwnerService: OwnerService) {}
 
+  delete(owner: Owner) {
+    if (
+      confirm(
+        " Do you want to delete a " +
+          owner.firstName +
+          " " +
+          owner.lastName +
+          " ?"
+      )
+    ) {
+      this.OwnerService.deleteOwner(owner.id).subscribe(respuesta => {
+        this.owners = respuesta;
+      });
+    }
+  }
+
   ngOnInit() {
-    this.OwnerService.getOwners().subscribe(
-      datos => {
-        console.log(datos);
-        this.owners = datos;
-      }
-    );
+    this.OwnerService.getOwners().subscribe(respuesta => {
+      this.owners = respuesta;
+    });
   }
 }

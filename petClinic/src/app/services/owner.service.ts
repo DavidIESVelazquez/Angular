@@ -6,8 +6,9 @@ import { Owner } from "../models/owner";
   providedIn: "root"
 })
 export class OwnerService {
-  private url: string =
-    "http://localhost/ajax/petClinic/API/petclinic/servicios.php";
+  // private url: string =
+  //   "http://localhost/ajax/petClinic/API/petclinic/servicios.php";
+  private url: string = "http://localhost/ajax/petclinic/servicios.php";
 
   constructor(private http: HttpClient) {}
 
@@ -24,5 +25,30 @@ export class OwnerService {
       id: id
     });
     return this.http.post<Owner>(this.url, pa);
+  }
+
+  addOwner(owner: Owner) {
+    let pa = JSON.stringify({
+      accion: "AnadeOwner",
+      owner: owner
+    });
+    return this.http.post(this.url, pa);
+  }
+
+  deleteOwner(id: number) {
+    let pa = JSON.stringify({
+      accion: "BorraOwner",
+      id: id,
+      listado: "OK"
+    });
+    return this.http.post<Owner[]>(this.url, pa);
+  }
+
+  editOwner(owner: Owner) {
+    let pa = JSON.stringify({
+      accion: "ModificaOwner",
+      owner: owner
+    });
+    return this.http.post(this.url, pa);
   }
 }
