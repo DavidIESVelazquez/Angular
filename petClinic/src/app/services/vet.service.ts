@@ -5,9 +5,9 @@ import { Vet } from "../models/vet";
   providedIn: "root"
 })
 export class VetService {
-  // private url: string =
-  //   "http://localhost/ajax/petClinic/API/petclinic/servicios.php";
-  private url: string = "http://localhost/ajax/petclinic/servicios.php";
+  private url: string =
+    "http://localhost/ajax/petClinic/API/petclinic/servicios.php";
+  //private url: string = "http://localhost/ajax/petclinic/servicios.php";
   constructor(private http: HttpClient) {}
 
   getVets() {

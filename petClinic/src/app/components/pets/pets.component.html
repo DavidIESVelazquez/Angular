@@ -1,0 +1,28 @@
+<div class="my-4">
+  <h2>Pets</h2>
+</div>
+<div *ngFor="let pet of pets">
+  <h3>{{ pet.name }}</h3>
+
+  <div>
+    <table class="table my-4">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Birth Date</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ pet.name }}</td>
+          <td>{{ pet.birthDate }}</td>
+          <td>{{ pet.typeName }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="pet.visits.length > 0">
+    <h3>Visits</h3>
+  </div>
+</div>

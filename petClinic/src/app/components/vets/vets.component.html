@@ -1,7 +1,9 @@
 <div class="container">
-  <h2>Vets</h2>
-  <ul class="list-group mt-4" *ngFor="let vet of vets">
-    <li class="list-group-item list-group-item-secondary">
+  <div class="row my-4">
+    <div class="col-12"><h2>Vets</h2></div>
+  </div>
+  <ul class="list-group" *ngFor="let vet of vets">
+    <li class="list-group-item list-group-item-dark my-1">
       {{ vet.firstName }} {{ vet.lastName }}
     </li>
   </ul>

@@ -29,11 +29,38 @@ export class FormOwnerComponent implements OnInit {
 
   onSubmit() {
     if (this.accion.id == -1) {
-      this.ownerService.addOwner(this.owner).subscribe();
+      this.ownerService.addOwner(this.owner).subscribe(respuesta => {
+        if (respuesta["result"]) {
+          alert(
+            this.owner.firstName +
+              " " +
+              this.owner.lastName +
+              " added correctly"
+          );
+          this.route.navigate(["/owners"]);
+        } else {
+          alert(
+            this.owner.firstName + " " + this.owner.lastName + " not added"
+          );
+        }
+      });
     } else {
-      this.ownerService.editOwner(this.owner).subscribe();
+      this.ownerService.editOwner(this.owner).subscribe(respuesta => {
+        if (respuesta["result"]) {
+          alert(
+            this.owner.firstName +
+              " " +
+              this.owner.lastName +
+              " edited correctly"
+          );
+          this.route.navigate(["/owners"]);
+        } else {
+          alert(
+            this.owner.firstName + " " + this.owner.lastName + " not edited"
+          );
+        }
+      });
     }
-    this.route.navigate(["/owners"]);
   }
 
   ngOnInit() {

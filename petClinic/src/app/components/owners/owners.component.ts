@@ -9,7 +9,7 @@ import { OwnerService } from "../../services/owner.service";
 })
 export class OwnersComponent implements OnInit {
   public owners: Array<Owner>;
-  constructor(private OwnerService: OwnerService) {}
+  constructor(private ownerService: OwnerService) {}
 
   delete(owner: Owner) {
     if (
@@ -21,14 +21,15 @@ export class OwnersComponent implements OnInit {
           " ?"
       )
     ) {
-      this.OwnerService.deleteOwner(owner.id).subscribe(respuesta => {
+      this.ownerService.deleteOwner(owner.id).subscribe(respuesta => {
         this.owners = respuesta;
       });
     }
   }
 
   ngOnInit() {
-    this.OwnerService.getOwners().subscribe(respuesta => {
+    this.ownerService.getOwners().subscribe(respuesta => {
+      console.log(respuesta);
       this.owners = respuesta;
     });
   }
