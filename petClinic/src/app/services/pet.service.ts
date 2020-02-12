@@ -16,4 +16,12 @@ export class PetService {
     });
     return this.http.post<Pet[]>(this.url, pa);
   }
+
+  addPet(pet: Pet) {
+    let pa = JSON.stringify({
+      accion: "AnadePet",
+      pet: pet
+    });
+    return this.http.post(this.url, pa);
+  }
 }

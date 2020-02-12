@@ -7,8 +7,9 @@
       </button>
     </div>
   </div>
-  <ul class="list-group" *ngFor="let owner of owners">
+  <ul class="list-group">
     <li
+      *ngFor="let owner of owners"
       class="list-group-item list-group-item-dark list-group-item-action my-1"
     >
       <a routerLink="/owners/{{ owner.id }}">

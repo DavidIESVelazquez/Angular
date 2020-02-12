@@ -1,1 +1,72 @@
-<p>form-pet works!</p>
+<div class="container">
+  <h2>{{ accion }} Pet</h2>
+  <div class="row mt-4">
+    <div class="col-6">
+      <form
+        class="form-horizontal"
+        #petForm="ngForm"
+        (ngSubmit)="onSubmit(petForm.value)"
+      >
+        <div class="form-group">
+          <label>Owner</label>
+          <input
+            type="text"
+            class="form-control"
+            readonly
+            value="{{ owner.firstName }}  {{ owner.lastName }}"
+          />
+        </div>
+        <div class="form-group">
+          <label>Name</label>
+          <input
+            type="text"
+            class="form-control"
+            required
+            [(ngModel)]="pet.name"
+            name="name"
+            #name="ngModel"
+          />
+        </div>
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+          Name is required
+        </div>
+        <div class="form-group">
+          <label>Birth Date</label>
+          <input
+            type="date"
+            class="form-control"
+            required
+            [(ngModel)]="pet.birth_date"
+            name="birth_date"
+            #birth_date="ngModel"
+          />
+        </div>
+        <div
+          [hidden]="birth_date.valid || birth_date.pristine"
+          class="alert alert-danger"
+        >
+          Birth Date is required
+        </div>
+        <div class="form-group">
+          <label>Pet Type</label>
+          <select
+            name="petType"
+            class="form-control"
+            [(ngModel)]="pet.type"
+            #petType="ngModel"
+          >
+            <option *ngFor="let petType of petTypes" [ngValue]="petType">
+              {{ petType.name }}
+            </option>
+          </select>
+        </div>
+        <div class="mt-4">
+          <button class="btn btn-success mx-2" [disabled]="!petForm.valid">
+            {{ accion }}
+          </button>
+          <button class="btn btn-danger" routerLink="/owners">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
