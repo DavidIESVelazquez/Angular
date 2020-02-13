@@ -30,23 +30,46 @@ export class FormPetComponent implements OnInit {
   }
 
   onSubmit() {
-    this.petService.addPet(this.pet).subscribe(respuesta => {
-      if (respuesta["result"]) {
-        alert(
-          this.owner.firstName + " " + this.owner.lastName + " added correctly"
-        );
-        this.route.navigate(["/owners/" + this.owner.id]);
-      } else {
-        alert(this.owner.firstName + " " + this.owner.lastName + " not added");
-      }
-    });
+    if (this.accion == "Add") {
+      this.pet.owner = this.owner;
+      console.log(this.pet);
+      this.petService.addPet(this.pet).subscribe(respuesta => {
+        if (respuesta["result"]) {
+          alert(this.pet.name + " added correctly");
+          this.route.navigate(["/owners/" + this.owner.id]);
+        } else {
+          alert(this.pet.name + " not added");
+        }
+      });
+    } else {
+      this.petService.editPet(this.pet).subscribe(respuesta => {
+        if (respuesta["result"]) {
+          alert(this.pet.name + " edit correctly");
+          this.route.navigate(["/owners/" + this.owner.id]);
+        } else {
+          alert(this.pet.name + " not edit");
+        }
+      });
+    }
   }
 
   ngOnInit() {
     this.owner.id = this.activatedRoute.snapshot.params["ownerid"];
-    this.ownerService.getOwnerId(this.owner.id).subscribe(respuesta => {
-      this.owner = respuesta;
-    });
+    this.pet.id = this.activatedRoute.snapshot.params["petid"];
+    if (this.owner.id) {
+      this.ownerService.getOwnerId(this.owner.id).subscribe(respuesta => {
+        this.owner = respuesta;
+      });
+    }
+    if (this.pet.id) {
+      this.petService.getPetId(this.pet.id).subscribe(respuesta => {
+        this.pet = respuesta;
+        this.ownerService.getOwnerId(this.pet.owner.id).subscribe(respuesta => {
+          this.owner = respuesta;
+        });
+      });
+      this.accion = "Edit";
+    }
     this.petTypeService.getPetTypes().subscribe(respuesta => {
       this.petTypes = respuesta;
     });

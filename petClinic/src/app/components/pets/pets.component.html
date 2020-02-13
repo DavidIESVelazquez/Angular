@@ -1,28 +1,36 @@
 <div class="my-4">
   <h2>Pets</h2>
 </div>
-<div *ngFor="let pet of pets">
-  <h3>{{ pet.name }}</h3>
-
-  <div>
-    <table class="table my-4">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Birth Date</th>
-          <th>Type</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{ pet.name }}</td>
-          <td>{{ pet.birthDate }}</td>
-          <td>{{ pet.typeName }}</td>
-        </tr>
-      </tbody>
+<div class="row my-5" *ngFor="let pet of pets">
+  <div class="col-12">
+    <h3>{{ pet.name }}</h3>
+  </div>
+  <div class="col-5">
+    <table class="table">
+      <tr>
+        <th class="table-dark">Name</th>
+        <td>{{ pet.name }}</td>
+      </tr>
+      <tr>
+        <th class="table-dark">Birth Date</th>
+        <td>{{ pet.birthDate }}</td>
+      </tr>
+      <tr>
+        <th class="table-dark">Type</th>
+        <td>{{ pet.typeName }}</td>
+      </tr>
     </table>
   </div>
-  <div *ngIf="pet.visits.length > 0">
+
+  <div class="col-7" *ngIf="pet.visits.length > 0">
     <h3>Visits</h3>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-info mr-2" routerLink="/editpet/{{ pet.id }}">
+      EDIT PET
+    </button>
+    <button class="btn btn-danger" (click)="deletePet(pet)">
+      DELETE PET
+    </button>
   </div>
 </div>

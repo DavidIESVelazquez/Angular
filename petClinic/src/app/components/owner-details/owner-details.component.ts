@@ -37,7 +37,6 @@ export class OwnerDetailsComponent implements OnInit {
     this.owner.id = this.routerActive.snapshot.params["id"];
     this.ownerService.getOwnerId(this.owner.id).subscribe(respuesta => {
       this.owner = respuesta;
-      console.log(this.owner.pets);
     });
   }
 }

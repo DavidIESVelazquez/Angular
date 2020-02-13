@@ -31,6 +31,10 @@ const routes: Routes = [
   {
     path: "addpet/:ownerid",
     component: FormPetComponent
+  },
+  {
+    path: "editpet/:petid",
+    component: FormPetComponent
   }
 ];
 

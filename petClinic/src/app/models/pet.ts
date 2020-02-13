@@ -5,8 +5,8 @@ import { PetType } from "./pet-type";
 export interface Pet {
   id: number;
   name: string;
-  birth_date: Date;
-  type_id: PetType;
+  birthDate: Date;
+  type: PetType;
   owner: Owner;
   visits: Visit[];
 }

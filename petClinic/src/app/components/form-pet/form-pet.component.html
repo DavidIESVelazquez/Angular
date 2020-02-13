@@ -36,13 +36,13 @@
             type="date"
             class="form-control"
             required
-            [(ngModel)]="pet.birth_date"
-            name="birth_date"
-            #birth_date="ngModel"
+            [(ngModel)]="pet.birthDate"
+            name="birthDate"
+            #birthDate="ngModel"
           />
         </div>
         <div
-          [hidden]="birth_date.valid || birth_date.pristine"
+          [hidden]="birthDate.valid || birthDate.pristine"
           class="alert alert-danger"
         >
           Birth Date is required
@@ -55,7 +55,7 @@
             [(ngModel)]="pet.type"
             #petType="ngModel"
           >
-            <option *ngFor="let petType of petTypes" [ngValue]="petType">
+            <option *ngFor="let petType of petTypes" [ngValue]="pet.type">
               {{ petType.name }}
             </option>
           </select>
