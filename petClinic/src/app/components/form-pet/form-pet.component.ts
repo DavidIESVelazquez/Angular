@@ -32,7 +32,6 @@ export class FormPetComponent implements OnInit {
   onSubmit() {
     if (this.accion == "Add") {
       this.pet.owner = this.owner;
-      console.log(this.pet);
       this.petService.addPet(this.pet).subscribe(respuesta => {
         if (respuesta["result"]) {
           alert(this.pet.name + " added correctly");

@@ -9,8 +9,10 @@ import { OwnersComponent } from "./components/owners/owners.component";
 import { VetsComponent } from "./components/vets/vets.component";
 import { OwnerDetailsComponent } from "./components/owner-details/owner-details.component";
 import { FormOwnerComponent } from "./components/form-owner/form-owner.component";
-import { FormPetComponent } from './components/form-pet/form-pet.component';
-import { PetsComponent } from './components/pets/pets.component';
+import { FormPetComponent } from "./components/form-pet/form-pet.component";
+import { PetsComponent } from "./components/pets/pets.component";
+import { VisitsComponent } from "./components/visits/visits.component";
+import { FormVisitComponent } from './components/form-visit/form-visit.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { PetsComponent } from './components/pets/pets.component';
     OwnerDetailsComponent,
     FormOwnerComponent,
     FormPetComponent,
-    PetsComponent
+    PetsComponent,
+    VisitsComponent,
+    FormVisitComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

@@ -6,6 +6,7 @@
     <h3>{{ pet.name }}</h3>
   </div>
   <div class="col-5">
+    <h4 class="text-center">Info</h4>
     <table class="table">
       <tr>
         <th class="table-dark">Name</th>
@@ -23,14 +24,17 @@
   </div>
 
   <div class="col-7" *ngIf="pet.visits.length > 0">
-    <h3>Visits</h3>
+    <app-visits [pet]="pet"></app-visits>
   </div>
   <div class="col-12">
     <button class="btn btn-info mr-2" routerLink="/editpet/{{ pet.id }}">
       EDIT PET
     </button>
-    <button class="btn btn-danger" (click)="deletePet(pet)">
+    <button class="btn btn-danger mr-2" (click)="deletePet(pet)">
       DELETE PET
+    </button>
+    <button class="btn btn-info" routerLink="/addvisit/{{ pet.id }}">
+      ADD VISIT
     </button>
   </div>
 </div>

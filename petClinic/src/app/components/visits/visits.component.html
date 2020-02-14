@@ -1,0 +1,15 @@
+<h4 class="text-center">Visits</h4>
+<table class="table">
+  <thead class="bg-dark text-light">
+    <tr>
+      <th>Date</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let visit of visits">
+      <td>{{ visit.visitDate }}</td>
+      <td>{{ visit.description }}</td>
+    </tr>
+  </tbody>
+</table>
