@@ -25,7 +25,7 @@ export class FormVisitComponent implements OnInit {
   }
 
   onSubmit() {
-    this.visit.pet_id = this.pet.id;
+    this.visit.petId = this.pet.id;
     console.log(this.visit);
     this.visitService.addVisit(this.visit).subscribe(respuesta => {
       if (respuesta["result"]) {

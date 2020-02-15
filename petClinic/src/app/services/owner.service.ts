@@ -25,6 +25,14 @@ export class OwnerService {
     return this.http.post<Owner>(this.url, pa);
   }
 
+  getOwnerIdPets(id: number) {
+    let pa = JSON.stringify({
+      accion: "ObtenerOwnerId_Pets",
+      id: id
+    });
+    return this.http.post<Owner>(this.url, pa);
+  }
+
   addOwner(owner: Owner) {
     let pa = JSON.stringify({
       accion: "AnadeOwner",

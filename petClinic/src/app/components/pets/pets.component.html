@@ -1,7 +1,4 @@
-<div class="my-4">
-  <h2>Pets</h2>
-</div>
-<div class="row my-5" *ngFor="let pet of pets">
+<div class="row my-5">
   <div class="col-12">
     <h3>{{ pet.name }}</h3>
   </div>
@@ -24,7 +21,22 @@
   </div>
 
   <div class="col-7" *ngIf="pet.visits.length > 0">
-    <app-visits [pet]="pet"></app-visits>
+    <h4 class="text-center">Visits</h4>
+    <table class="table">
+      <thead class="bg-dark text-light">
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <app-visits
+          *ngFor="let visit of pet.visits"
+          [visit]="visit"
+        ></app-visits>
+      </tbody>
+    </table>
   </div>
   <div class="col-12">
     <button class="btn btn-info mr-2" routerLink="/editpet/{{ pet.id }}">

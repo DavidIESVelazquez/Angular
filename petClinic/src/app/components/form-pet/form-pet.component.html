@@ -50,13 +50,13 @@
         <div class="form-group">
           <label>Pet Type</label>
           <select
-            name="petType"
             class="form-control"
             [(ngModel)]="pet.type"
-            #petType="ngModel"
+            name="type"
+            #type="ngModel"
           >
-            <option *ngFor="let petType of petTypes" [ngValue]="pet.type">
-              {{ petType.name }}
+            <option *ngFor="let type of petTypes" [ngValue]="type">
+              {{ type.name }}
             </option>
           </select>
         </div>

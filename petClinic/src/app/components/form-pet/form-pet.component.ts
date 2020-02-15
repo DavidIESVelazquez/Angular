@@ -30,6 +30,7 @@ export class FormPetComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.pet);
     if (this.accion == "Add") {
       this.pet.owner = this.owner;
       this.petService.addPet(this.pet).subscribe(respuesta => {
@@ -63,8 +64,10 @@ export class FormPetComponent implements OnInit {
     if (this.pet.id) {
       this.petService.getPetId(this.pet.id).subscribe(respuesta => {
         this.pet = respuesta;
+        console.log("Pet", this.pet);
         this.ownerService.getOwnerId(this.pet.owner.id).subscribe(respuesta => {
           this.owner = respuesta;
+          console.log("Owner", this.owner);
         });
       });
       this.accion = "Edit";

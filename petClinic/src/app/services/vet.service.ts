@@ -1,13 +1,12 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Vet } from "../models/vet";
+import { environment } from "src/environments/environment";
 @Injectable({
   providedIn: "root"
 })
 export class VetService {
-  private url: string =
-    "http://localhost/ajax/petClinic/API/petclinic/servicios.php";
-  //private url: string = "http://localhost/ajax/petclinic/servicios.php";
+  private url: string = environment.url;
   constructor(private http: HttpClient) {}
 
   getVets() {

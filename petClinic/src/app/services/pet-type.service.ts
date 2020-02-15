@@ -2,8 +2,6 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "../../environments/environment";
 import { PetType } from "../models/pet-type";
-
-import { CoreEnvironment } from "@angular/compiler/src/compiler_facade_interface";
 @Injectable({
   providedIn: "root"
 })

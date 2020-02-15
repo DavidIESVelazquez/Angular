@@ -10,12 +10,14 @@ import { Owner } from "src/app/models/owner";
 })
 export class OwnerDetailsComponent implements OnInit {
   private owner: Owner;
+  private listOwner: Owner;
   constructor(
     private ownerService: OwnerService,
     private route: Router,
     private routerActive: ActivatedRoute
   ) {
     this.owner = <Owner>{};
+    this.listOwner = <Owner>{};
   }
 
   delete(owner: Owner) {
@@ -36,7 +38,12 @@ export class OwnerDetailsComponent implements OnInit {
   ngOnInit() {
     this.owner.id = this.routerActive.snapshot.params["id"];
     this.ownerService.getOwnerId(this.owner.id).subscribe(respuesta => {
+      this.listOwner = respuesta;
+    });
+    this.owner.id = this.routerActive.snapshot.params["id"];
+    this.ownerService.getOwnerIdPets(this.owner.id).subscribe(respuesta => {
       this.owner = respuesta;
+      console.log(this.owner);
     });
   }
 }

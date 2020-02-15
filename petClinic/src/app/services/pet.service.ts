@@ -9,6 +9,7 @@ export class PetService {
   private url: string = environment.url;
   constructor(private http: HttpClient) {}
 
+  //Lista los pets como un string con el nombre de cada pet
   getPetsOwnerId(id: number) {
     let pa = JSON.stringify({
       accion: "ListarPetsOwnerId",
@@ -22,6 +23,7 @@ export class PetService {
       accion: "AnadePet",
       pet: pet
     });
+    console.log(pa);
     return this.http.post(this.url, pa);
   }
 

@@ -25,4 +25,12 @@ export class VisitsService {
     });
     return this.http.post(this.url, pa);
   }
+
+  deleteVisit(id: number) {
+    let pa = JSON.stringify({
+      accion: "BorraVisit",
+      id: id
+    });
+    return this.http.post(this.url, pa);
+  }
 }

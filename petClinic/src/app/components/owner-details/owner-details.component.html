@@ -9,31 +9,38 @@
     <button class="btn btn-info mx-2" routerLink="/addpet/{{ owner.id }}">
       ADD NEW PET
     </button>
-    <button class="btn btn-dark mx-2" routerLink="/owners">OWNERS</button>
+    <button class="btn btn-dark mx-2" routerLink="/owners">
+      OWNERS
+    </button>
   </div>
-  <h2 class="mb-4 text-center">{{ owner.firstName }} {{ owner.lastName }}</h2>
+  <h2 class="mb-4 text-center">
+    {{ listOwner.firstName }} {{ listOwner.lastName }}
+  </h2>
   <table class="table table:hover">
     <tr>
       <th class="table-dark">Name</th>
-      <td>{{ owner.firstName }} {{ owner.lastName }}</td>
+      <td>{{ listOwner.firstName }} {{ listOwner.lastName }}</td>
     </tr>
     <tr>
       <th class="table-dark">Address</th>
-      <td>{{ owner.address }}</td>
+      <td>{{ listOwner.address }}</td>
     </tr>
     <tr>
       <th class="table-dark">City</th>
-      <td>{{ owner.city }}</td>
+      <td>{{ listOwner.city }}</td>
     </tr>
     <tr>
       <th class="table-dark">Telephone</th>
-      <td>{{ owner.telephone }}</td>
+      <td>{{ listOwner.telephone }}</td>
     </tr>
-    <tr *ngIf="owner.pets">
+    <tr *ngIf="listOwner.pets">
       <th class="table-dark">Pets</th>
-      <td>{{ owner.pets }}</td>
+      <td>{{ listOwner.pets }}</td>
     </tr>
   </table>
 
-  <app-pets *ngIf="owner.pets" [owner]="owner"></app-pets>
+  <div class="my-4">
+    <h2>Pets</h2>
+    <app-pets *ngFor="let pet of owner.pets" [pet]="pet"></app-pets>
+  </div>
 </div>

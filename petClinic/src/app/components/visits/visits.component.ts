@@ -9,14 +9,16 @@ import { Visit } from "src/app/models/visit";
   styleUrls: ["./visits.component.css"]
 })
 export class VisitsComponent implements OnInit {
-  @Input() pet: Pet;
-  private visits: Visit[];
-
+  @Input() visit: Visit;
   constructor(private visitService: VisitsService) {}
 
+  delete(visit: Visit) {
+    if (confirm("Do you want to delete a visit ?")) {
+      this.visitService.deleteVisit(visit.id).subscribe();
+    }
+  }
+
   ngOnInit() {
-    this.visitService.getVisitsPet(this.pet.id).subscribe(respuesta => {
-      this.visits = respuesta;
-    });
+    console.log(this.visit);
   }
 }
