@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { Pet } from "../../models/pet";
 import { VisitsService } from "src/app/services/visits.service";
 import { Visit } from "src/app/models/visit";
 
@@ -18,7 +17,5 @@ export class VisitsComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
-    console.log(this.visit);
-  }
+  ngOnInit() {}
 }

@@ -31,10 +31,20 @@
         </tr>
       </thead>
       <tbody>
-        <app-visits
-          *ngFor="let visit of pet.visits"
-          [visit]="visit"
-        ></app-visits>
+        <tr *ngFor="let visit of pet.visits">
+          <!-- <td>{{ visit.visitDate }}</td>
+          <td>{{ visit.description }}</td>
+          <td>
+            <button class="btn btn-sm btn-danger" (click)="delete(visit)">
+              X
+            </button>
+          </td> -->
+
+          <app-visits
+            *ngFor="let visit of pet.visits"
+            [visit]="visit"
+          ></app-visits>
+        </tr>
       </tbody>
     </table>
   </div>

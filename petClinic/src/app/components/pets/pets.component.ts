@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from "@angular/core";
 import { Pet } from "../../models/pet";
 import { PetService } from "src/app/services/pet.service";
 import { Router } from "@angular/router";
+import { Visit } from "src/app/models/visit";
+import { VisitsService } from "src/app/services/visits.service";
 
 @Component({
   selector: "app-pets",
@@ -10,7 +12,11 @@ import { Router } from "@angular/router";
 })
 export class PetsComponent implements OnInit {
   @Input() pet: Pet;
-  constructor(private petService: PetService, private route: Router) {}
+  constructor(
+    private petService: PetService,
+    private visitService: VisitsService,
+    private route: Router
+  ) {}
 
   deletePet(pet: Pet) {
     if (pet.visits.length > 0) {
@@ -24,7 +30,12 @@ export class PetsComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
-    console.log(this.pet);
-  }
+  // delete(visit: Visit) {
+  //   if (confirm("Do you want to delete a visit ?")) {
+  //     this.visitService.deleteVisit(visit.id).subscribe();
+  //     this.route.navigate["/owners/" + this.pet["ownerId"]];
+  //   }
+  // }
+
+  ngOnInit() {}
 }
