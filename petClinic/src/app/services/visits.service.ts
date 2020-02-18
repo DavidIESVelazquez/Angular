@@ -10,6 +10,14 @@ export class VisitsService {
   private url = environment.url;
   constructor(private http: HttpClient) {}
 
+  getVisitId(id: number) {
+    let pa = JSON.stringify({
+      accion: "ObtenerVisitId",
+      id: id
+    });
+    return this.http.post<Visit>(this.url, pa);
+  }
+
   getVisitsPet(id: number) {
     let pa = JSON.stringify({
       accion: "ListarVisitasPet",
@@ -26,11 +34,19 @@ export class VisitsService {
     return this.http.post(this.url, pa);
   }
 
+  editVisit(visit: Visit) {
+    let pa = JSON.stringify({
+      accion: "ModificaVisit",
+      visit: visit
+    });
+    return this.http.post(this.url, pa);
+  }
+
   deleteVisit(id: number) {
     let pa = JSON.stringify({
       accion: "BorraVisit",
       id: id
     });
-    return this.http.post(this.url, pa);
+    return this.http.post<string>(this.url, pa);
   }
 }

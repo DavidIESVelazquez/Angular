@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Add Visit</h2>
+  <h2>{{ accion }} Visit</h2>
   <div class="row mt-4">
     <div class="col-6">
       <form
@@ -52,9 +52,14 @@
         </div>
         <div class="mt-4">
           <button class="btn btn-success mx-2" [disabled]="!visitForm.valid">
-            Add
+            {{ accion }}
           </button>
-          <button class="btn btn-danger" routerLink="/owners">Cancel</button>
+          <button
+            class="btn btn-danger"
+            routerLink="/owners/{{ pet.owner_id }} "
+          >
+            Cancel
+          </button>
         </div>
       </form>
     </div>

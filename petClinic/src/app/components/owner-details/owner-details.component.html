@@ -13,34 +13,32 @@
       OWNERS
     </button>
   </div>
-  <h2 class="mb-4 text-center">
-    {{ listOwner.firstName }} {{ listOwner.lastName }}
-  </h2>
+  <h2 class="mb-4 text-center">{{ owner.firstName }} {{ owner.lastName }}</h2>
   <table class="table table:hover">
     <tr>
       <th class="table-dark">Name</th>
-      <td>{{ listOwner.firstName }} {{ listOwner.lastName }}</td>
+      <td>{{ owner.firstName }} {{ owner.lastName }}</td>
     </tr>
     <tr>
       <th class="table-dark">Address</th>
-      <td>{{ listOwner.address }}</td>
+      <td>{{ owner.address }}</td>
     </tr>
     <tr>
       <th class="table-dark">City</th>
-      <td>{{ listOwner.city }}</td>
+      <td>{{ owner.city }}</td>
     </tr>
     <tr>
       <th class="table-dark">Telephone</th>
-      <td>{{ listOwner.telephone }}</td>
-    </tr>
-    <tr *ngIf="listOwner.pets">
-      <th class="table-dark">Pets</th>
-      <td>{{ listOwner.pets }}</td>
+      <td>{{ owner.telephone }}</td>
     </tr>
   </table>
 
   <div class="my-4">
     <h2>Pets</h2>
-    <app-pets *ngFor="let pet of owner.pets" [pet]="pet"></app-pets>
+    <app-pets
+      *ngFor="let pet of owner.pets"
+      [pet]="pet"
+      (deletedPet)="listPets($event)"
+    ></app-pets>
   </div>
 </div>

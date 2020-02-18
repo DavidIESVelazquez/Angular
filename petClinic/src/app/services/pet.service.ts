@@ -23,7 +23,6 @@ export class PetService {
       accion: "AnadePet",
       pet: pet
     });
-    console.log(pa);
     return this.http.post(this.url, pa);
   }
 

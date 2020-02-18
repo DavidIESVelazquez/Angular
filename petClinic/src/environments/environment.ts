@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  //url: "http://localhost/ajax/petClinic/API/petclinic/servicios.php"
-  url: "http://localhost/ajax/petclinic/servicios.php"
+  url: "http://localhost/ajax/petClinic/API/petclinic/servicios.php"
+  //url: "http://localhost/ajax/petclinic/servicios.php"
 };
 
 /*

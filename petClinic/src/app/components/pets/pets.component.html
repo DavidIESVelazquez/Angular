@@ -22,31 +22,10 @@
 
   <div class="col-7" *ngIf="pet.visits.length > 0">
     <h4 class="text-center">Visits</h4>
-    <table class="table">
-      <thead class="bg-dark text-light">
-        <tr>
-          <th>Date</th>
-          <th>Description</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let visit of pet.visits">
-          <!-- <td>{{ visit.visitDate }}</td>
-          <td>{{ visit.description }}</td>
-          <td>
-            <button class="btn btn-sm btn-danger" (click)="delete(visit)">
-              X
-            </button>
-          </td> -->
-
-          <app-visits
-            *ngFor="let visit of pet.visits"
-            [visit]="visit"
-          ></app-visits>
-        </tr>
-      </tbody>
-    </table>
+    <app-visits
+      [visits]="pet.visits"
+      (deleted)="listVisits($event)"
+    ></app-visits>
   </div>
   <div class="col-12">
     <button class="btn btn-info mr-2" routerLink="/editpet/{{ pet.id }}">

@@ -40,6 +40,10 @@ const routes: Routes = [
   {
     path: "addvisit/:petid",
     component: FormVisitComponent
+  },
+  {
+    path: "editvisit/:visitid",
+    component: FormVisitComponent
   }
 ];
 
