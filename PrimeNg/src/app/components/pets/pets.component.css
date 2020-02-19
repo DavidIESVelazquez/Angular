@@ -1,0 +1,11 @@
+h2 {
+  text-align: center;
+  margin-top: 1.5em;
+  padding-top: 0.5em;
+  border-top: 5px solid #343a40;
+}
+
+h3 {
+  border-left: 10px solid #343a40;
+  padding-left: 0.5em;
+}

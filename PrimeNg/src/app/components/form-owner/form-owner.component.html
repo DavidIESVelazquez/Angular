@@ -1,0 +1,101 @@
+<div class="container">
+  <h2>{{ accion.text }} Owner</h2>
+  <div class="row mt-4">
+    <div class="col-6">
+      <form
+        class="form-horizontal"
+        #ownerForm="ngForm"
+        (ngSubmit)="onSubmit(ownerForm.value)"
+      >
+        <div class="form-group">
+          <label>First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            required
+            [(ngModel)]="owner.firstName"
+            name="firstName"
+            #firstName="ngModel"
+          />
+        </div>
+        <div
+          [hidden]="firstName.valid || firstName.pristine"
+          class="alert alert-danger"
+        >
+          First Name is required
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            required
+            [(ngModel)]="owner.lastName"
+            name="lastName"
+            #lastName="ngModel"
+          />
+        </div>
+        <div
+          [hidden]="lastName.valid || lastName.pristine"
+          class="alert alert-danger"
+        >
+          Last Name is required
+        </div>
+        <div class="form-group">
+          <label>Address</label>
+          <input
+            type="text"
+            class="form-control"
+            required
+            [(ngModel)]="owner.address"
+            name="address"
+            #address="ngModel"
+          />
+        </div>
+        <div
+          [hidden]="address.valid || address.pristine"
+          class="alert alert-danger"
+        >
+          Last Name is required
+        </div>
+        <div class="form-group">
+          <label>City</label>
+          <input
+            type="text"
+            class="form-control"
+            required
+            [(ngModel)]="owner.city"
+            name="city"
+            #city="ngModel"
+          />
+        </div>
+        <div [hidden]="city.valid || city.pristine" class="alert alert-danger">
+          Last Name is required
+        </div>
+        <div class="form-group">
+          <label>Telephone</label>
+          <input
+            type="text"
+            class="form-control"
+            required
+            [(ngModel)]="owner.telephone"
+            name="telephone"
+            #telephone="ngModel"
+          />
+        </div>
+        <div
+          [hidden]="telephone.valid || telephone.pristine"
+          class="alert alert-danger"
+        >
+          Telephone is required
+        </div>
+        <div class="mt-4">
+          <button class="btn btn-success mx-2" [disabled]="!ownerForm.valid">
+            {{ accion.text }}
+          </button>
+          <button class="btn btn-danger" routerLink="/owners">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
