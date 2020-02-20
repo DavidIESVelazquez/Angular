@@ -7,14 +7,29 @@
       </button>
     </div>
   </div>
-  <ul class="list-group">
-    <li
-      *ngFor="let owner of owners"
-      class="list-group-item list-group-item-dark list-group-item-action my-1"
-    >
-      <a routerLink="/owners/{{ owner.id }}">
-        {{ owner.firstName }} {{ owner.lastName }} - {{ owner.city }}
-      </a>
-    </li>
-  </ul>
+
+  <table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>Telephone</th>
+        <th>Pets</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let owner of owners">
+        <td>
+          <a routerLink="/owners/{{ owner.id }}">
+            {{ owner.firstName }} {{ owner.lastName }}
+          </a>
+        </td>
+        <td>{{ owner.address }}</td>
+        <td>{{ owner.city }}</td>
+        <td>{{ owner.telephone }}</td>
+        <td>{{ owner.pets }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

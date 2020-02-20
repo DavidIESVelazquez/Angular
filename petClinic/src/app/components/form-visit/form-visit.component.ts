@@ -14,12 +14,14 @@ export class FormVisitComponent implements OnInit {
   private pet: Pet;
   private visit: Visit;
   private accion: string;
+  private empty: boolean;
   constructor(
     private petService: PetService,
     private visitService: VisitsService,
     private route: Router,
     private activatedRoute: ActivatedRoute
   ) {
+    this.empty = false;
     this.visit = <Visit>{};
     this.pet = <Pet>{};
     this.accion = "Add";
@@ -59,16 +61,21 @@ export class FormVisitComponent implements OnInit {
     if (this.pet.id) {
       this.petService.getPetId(this.pet.id).subscribe(respuesta => {
         this.pet = respuesta;
-        console.log(this.pet);
+        this.empty = true;
+        this.visitService.getVisitsPet(this.pet.id).subscribe(respuesta => {
+          this.pet.visits = respuesta;
+        });
       });
     }
     if (this.visit.id) {
       this.visitService.getVisitId(this.visit.id).subscribe(respuesta => {
         this.visit = respuesta;
         this.pet = this.visit["pet"];
-        console.log(this.visit);
-        console.log(this.pet);
+        this.empty = true;
         this.accion = "Edit";
+        this.visitService.getVisitsPet(this.pet.id).subscribe(respuesta => {
+          this.pet.visits = respuesta;
+        });
       });
     }
   }
