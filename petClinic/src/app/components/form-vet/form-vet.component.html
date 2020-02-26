@@ -1,0 +1,67 @@
+<div class="container">
+  <h2>{{ accion }} Vet</h2>
+  <div class="row mt-4">
+    <div class="col-6">
+      <form
+        class="form-horizontal"
+        #vetForm="ngForm"
+        (ngSubmit)="onSubmit(vetForm.value)"
+      >
+        <div class="form-group">
+          <label>First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            required
+            [(ngModel)]="vet.firstName"
+            name="firstName"
+            #firstName="ngModel"
+          />
+        </div>
+        <div
+          [hidden]="firstName.valid || firstName.pristine"
+          class="alert alert-danger"
+        >
+          First Name is required
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            required
+            [(ngModel)]="vet.lastName"
+            name="lastName"
+            #lastName="ngModel"
+          />
+        </div>
+        <div
+          [hidden]="lastName.valid || lastName.pristine"
+          class="alert alert-danger"
+        >
+          Last Name is required
+        </div>
+        <div class="form-group">
+          <label>Specialties</label>
+          <select
+            class="form-control"
+            multiple
+            [(ngModel)]="vet.specialties"
+            name="spec"
+            #spec="ngModel"
+          >
+            <option *ngFor="let spec of specialties" [ngValue]="spec">
+              {{ spec.name }}
+            </option>
+          </select>
+        </div>
+        <div class="mt-4">
+          <button class="btn btn-success mx-2" [disabled]="!vetForm.valid">
+            {{ accion }}
+          </button>
+          <button class="btn btn-danger" routerLink="/vets">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

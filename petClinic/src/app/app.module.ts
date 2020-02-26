@@ -17,6 +17,7 @@ import { FormVisitComponent } from "./components/form-visit/form-visit.component
 /* PRIMENG */
 
 import { InputTextModule } from "primeng/inputtext";
+import { FormVetComponent } from './components/form-vet/form-vet.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { InputTextModule } from "primeng/inputtext";
     FormPetComponent,
     PetsComponent,
     VisitsComponent,
-    FormVisitComponent
+    FormVisitComponent,
+    FormVetComponent
   ],
   imports: [
     BrowserModule,

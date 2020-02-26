@@ -7,6 +7,7 @@ import { OwnerDetailsComponent } from "./components/owner-details/owner-details.
 import { FormOwnerComponent } from "./components/form-owner/form-owner.component";
 import { FormPetComponent } from "./components/form-pet/form-pet.component";
 import { FormVisitComponent } from "./components/form-visit/form-visit.component";
+import { FormVetComponent } from "./components/form-vet/form-vet.component";
 
 const routes: Routes = [
   {
@@ -44,6 +45,10 @@ const routes: Routes = [
   {
     path: "editvisit/:visitid",
     component: FormVisitComponent
+  },
+  {
+    path: "addvet",
+    component: FormVetComponent
   }
 ];
 

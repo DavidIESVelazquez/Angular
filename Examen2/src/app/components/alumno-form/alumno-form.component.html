@@ -1,0 +1,64 @@
+<div>
+  <h2>{{ accion }} Alumno</h2>
+  <form #alumnoForm="ngForm" (ngSubmit)="onSubmit(alumnoForm.value)">
+    <div>
+      <label>NOMBRE</label>
+      <input
+        type="text"
+        required
+        [(ngModel)]="alumno.NOMBRE"
+        name="NOMBRE"
+        #NOMBRE="ngModel"
+      />
+    </div>
+    <div>
+      <label>APELLIDOS</label>
+      <input
+        type="text"
+        required
+        [(ngModel)]="alumno.APELLIDOS"
+        name="APELLIDOS"
+        #APELLIDOS="ngModel"
+      />
+    </div>
+    <div>
+      <label>SEXO</label>
+      <select required [(ngModel)]="alumno.SEXO" name="SEXO" #SEXO="ngModel">
+        <!-- <option value="-1" selected>Seleccione Sexo</option> -->
+        <option *ngFor="let sexo of sexos" [ngValue]="sexo.CODIGO">
+          {{ sexo.NOMBRE }}
+        </option>
+      </select>
+    </div>
+    <div>
+      <label>FECHA NACIMIENTO</label>
+      <input
+        type="date"
+        required
+        [(ngModel)]="alumno.FECHA_NACIMIENTO"
+        name="FECHA_NACIMIENTO"
+        #FECHA_NACIMIENTO="ngModel"
+      />
+    </div>
+    <div>
+      <label>ESTADO CIVIL</label>
+      <select
+        required
+        [(ngModel)]="alumno.ESTADO_CIVIL"
+        name="ESTADO_CIVIL"
+        #ESTADO_CIVIL="ngModel"
+      >
+        <option value="-1" selected>Seleccione Estado Civil</option>
+        <option *ngFor="let estado of estados" [ngValue]="estado.ID">
+          {{ estado.NOMBRE }}
+        </option>
+      </select>
+    </div>
+    <div class="mt-4">
+      <button [disabled]="!alumnoForm.valid">
+        {{ accion }}
+      </button>
+      <button routerLink="/alumnos">Cancel</button>
+    </div>
+  </form>
+</div>

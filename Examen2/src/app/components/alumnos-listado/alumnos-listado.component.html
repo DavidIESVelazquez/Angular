@@ -1,0 +1,47 @@
+<div *ngIf="alumnos">
+  <button [disabled]="borrar" routerLink="/add">Añadir Alumn@</button>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>NOMBRE</th>
+        <th>APELLIDOS</th>
+        <th>SEXO</th>
+        <th>FECHA NACIMIENTO</th>
+        <th>ESTADO CIVIL</th>
+        <th colspan="2">ACCIONES</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let alumno of alumnos">
+        <td>{{ alumno.ID }}</td>
+        <td>{{ alumno.NOMBRE }}</td>
+        <td>{{ alumno.APELLIDOS }}</td>
+        <td>{{ alumno.SEXO_NOMBRE }}</td>
+        <td>{{ alumno.FECHA_NACIMIENTO | date: "dd-MM-yyyy" }}</td>
+        <td>{{ alumno.NOMBRE_EC }}</td>
+        <td>
+          <button [disabled]="borrar" routerLink="/mod/{{ alumno.ID }}">
+            Mod
+          </button>
+        </td>
+        <td>
+          <button [disabled]="borrar" (click)="mostrarBorrar(alumno)">
+            Del
+          </button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="8">Total {{ alumnos.length }} alumn@s</td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+<div *ngIf="borrar">
+  <app-alumno-del
+    [alumno]="delalumno"
+    (deleted)="listarAlumnos($event)"
+  ></app-alumno-del>
+</div>
